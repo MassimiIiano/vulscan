@@ -1,12 +1,15 @@
-{ pkgs ? import <nixpkgs> {} }:
+# shell.nix
+with import <nixpkgs> {};
 
-pkgs.mkShell {
+mkShell {
+  # Base package environment
   buildInputs = [
-    pkgs.python312   # Python 3.12
-    pkgs.nmap
+    (nmap.overrideAttrs (old: {
+      # Custom source files to be added to the Nmap share folder
+      postInstall = ''
+        mkdir -p $out/share/nmap/vulscan
+        cp -r ./vulscan/* $out/share/nmap/vulscan
+      '';
+    }))
   ];
-
-  shellHook = ''
-    echo "Nix shell with Python 3.12, requests, and scapy is ready."
-  '';
 }
