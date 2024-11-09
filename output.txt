@@ -1,51 +1,1083 @@
-Starting Nmap 7.95 ( https://nmap.org ) at 2024-11-09 11:48 CET
+Starting Nmap 7.95 ( https://nmap.org ) at 2024-11-09 13:37 CET
 Nmap scan report for 10.11.80.1
-Host is up (0.043s latency).
+Host is up (0.035s latency).
 All 1000 scanned ports on 10.11.80.1 are in ignored states.
-Not shown: 1000 closed tcp ports (reset)
-MAC Address: D8:94:03:FA:37:D5 (Hewlett Packard Enterprise – WW Corporate Headquarters)
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Device type: general purpose
-Running: QEMU
-OS CPE: cpe:/a:qemu:qemu
-OS details: QEMU user mode network gateway
-Network Distance: 1 hop
-
-Nmap scan report for 10.11.88.19
-Host is up (0.0086s latency).
-Not shown: 994 filtered tcp ports (no-response)
-PORT      STATE SERVICE
-3389/tcp  open  ms-wbt-server
-5357/tcp  open  wsdapi
-7070/tcp  open  realserver
-8084/tcp  open  websnp
-8090/tcp  open  opsmessaging
-27000/tcp open  flexlm0
-MAC Address: F0:B4:D2:AB:0B:0A (D-Link International)
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
-No OS matches for host
-Network Distance: 1 hop
-
-Nmap scan report for 10.11.88.38
-Host is up.
-All 1000 scanned ports on 10.11.88.38 are in ignored states.
-Not shown: 1000 filtered tcp ports (no-response)
-MAC Address: C8:8A:9A:16:E3:A1 (Intel Corporate)
-Too many fingerprints match this host to give specific OS details
-Network Distance: 1 hop
+Not shown: 1000 closed tcp ports (conn-refused)
 
 Nmap scan report for 10.11.81.6
-Host is up (0.00012s latency).
-Not shown: 998 closed tcp ports (reset)
-PORT     STATE    SERVICE
-22/tcp   open     ssh
-8080/tcp filtered http-proxy
-Device type: general purpose
-Running: Linux 2.6.X|5.X
-OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
-OS details: Linux 2.6.32, Linux 5.0 - 6.2
-Network Distance: 0 hops
+Host is up (0.00023s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 9.8 (protocol 2.0)
+| vulscan: VulDB - https://vuldb.com:
+| No findings
+| 
+| MITRE CVE - https://cve.mitre.org:
+| {"id": "CVE-2012-6067", "title": "freeFTPd.exe in freeFTPd through 1.0.11 allows remote attackers to bypass authentication via a crafted SFTP session, as demonstrated by an OpenSSH client with modified versions of ssh.c and sshconnect2.c.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6067"}
+| 
+| {"id": "CVE-2012-6066", "title": "freeSSHd.exe in freeSSHd through 1.2.6 allows remote attackers to bypass authentication via a crafted session, as demonstrated by an OpenSSH client with modified versions of ssh.c and sshconnect2.c.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6066"}
+| 
+| {"id": "CVE-2012-5975", "title": "The SSH USERAUTH CHANGE REQUEST feature in SSH Tectia Server 6.0.4 through 6.0.20, 6.1.0 through 6.1.12, 6.2.0 through 6.2.5, and 6.3.0 through 6.3.2 on UNIX and Linux, when old-style password authentication is enabled, allows remote attackers to bypass authentication via a crafted session involving entry of blank passwords, as demonstrated by a root login session from a modified OpenSSH client with an added input_userauth_passwd_changereq call in sshconnect2.c.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5975"}
+| 
+| {"id": "CVE-2012-5536", "title": "A certain Red Hat build of the pam_ssh_agent_auth module on Red Hat Enterprise Linux (RHEL) 6 and Fedora Rawhide calls the glibc error function instead of the error function in the OpenSSH codebase, which allows local users to obtain sensitive information from process memory or possibly gain privileges via crafted use of an application that relies on this module, as demonstrated by su and sudo.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5536"}
+| 
+| {"id": "CVE-2012-0814", "title": "The auth_parse_options function in auth-options.c in sshd in OpenSSH before 5.7 provides debug messages containing authorized_keys command options, which allows remote authenticated users to obtain potentially sensitive information by reading these messages, as demonstrated by the shared user account required by Gitolite.  NOTE: this can cross privilege boundaries because a user account may intentionally have no shell or filesystem access, and therefore may have no supported way to read an authorized_keys file in its own home directory.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0814"}
+| 
+| {"id": "CVE-2011-5000", "title": "The ssh_gssapi_parse_ename function in gss-serv.c in OpenSSH 5.8 and earlier, when gssapi-with-mic authentication is enabled, allows remote authenticated users to cause a denial of service (memory consumption) via a large value in a certain length field.  NOTE: there may be limited scenarios in which this issue is relevant.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-5000"}
+| 
+| {"id": "CVE-2011-0539", "title": "The key_certify function in usr.bin/ssh/key.c in OpenSSH 5.6 and 5.7, when generating legacy certificates using the -t command-line option in ssh-keygen, does not initialize the nonce field, which might allow remote attackers to obtain sensitive stack memory contents or make it easier to conduct hash collision attacks.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0539"}
+| 
+| {"id": "CVE-2010-5107", "title": "The default configuration of OpenSSH through 6.1 enforces a fixed time limit between establishing a TCP connection and completing a login, which makes it easier for remote attackers to cause a denial of service (connection-slot exhaustion) by periodically making many new TCP connections.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5107"}
+| 
+| {"id": "CVE-2010-4755", "title": "The (1) remote_glob function in sftp-glob.c and the (2) process_put function in sftp.c in OpenSSH 5.8 and earlier, as used in FreeBSD 7.3 and 8.1, NetBSD 5.0.2, OpenBSD 4.7, and other products, allow remote authenticated users to cause a denial of service (CPU and memory consumption) via crafted glob expressions that do not match any pathnames, as demonstrated by glob expressions in SSH_FXP_STAT requests to an sftp daemon, a different vulnerability than CVE-2010-2632.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4755"}
+| 
+| {"id": "CVE-2010-4478", "title": "OpenSSH 5.6 and earlier, when J-PAKE is enabled, does not properly validate the public parameters in the J-PAKE protocol, which allows remote attackers to bypass the need for knowledge of the shared secret, and successfully authenticate, by sending crafted values in each round of the protocol, a related issue to CVE-2010-4252.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4478"}
+| 
+| {"id": "CVE-2009-2904", "title": "A certain Red Hat modification to the ChrootDirectory feature in OpenSSH 4.8, as used in sshd in OpenSSH 4.3 in Red Hat Enterprise Linux (RHEL) 5.4 and Fedora 11, allows local users to gain privileges via hard links to setuid programs that use configuration files within the chroot directory, related to requirements for directory ownership.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2904"}
+| 
+| {"id": "CVE-2008-4109", "title": "A certain Debian patch for OpenSSH before 4.3p2-9etch3 on etch", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4109"}
+| 
+| {"id": "CVE-2008-3844", "title": "Certain Red Hat Enterprise Linux (RHEL) 4 and 5 packages for OpenSSH, as signed in August 2008 using a legitimate Red Hat GPG key, contain an externally introduced modification (Trojan Horse) that allows the package authors to have an unknown impact.  NOTE: since the malicious packages were not distributed from any official Red Hat sources, the scope of this issue is restricted to users who may have obtained these packages through unofficial distribution points.  As of 20080827, no unofficial distributions of this software are known.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3844"}
+| 
+| {"id": "CVE-2008-3259", "title": "OpenSSH before 5.1 sets the SO_REUSEADDR socket option when the X11UseLocalhost configuration setting is disabled, which allows local users on some platforms to hijack the X11 forwarding port via a bind to a single IP address, as demonstrated on the HP-UX platform.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3259"}
+| 
+| {"id": "CVE-2008-3234", "title": "sshd in OpenSSH 4 on Debian GNU/Linux, and the 20070303 OpenSSH snapshot, allows remote authenticated users to obtain access to arbitrary SELinux roles by appending a :/ (colon slash) sequence, followed by the role name, to the username.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3234"}
+| 
+| {"id": "CVE-2008-1657", "title": "OpenSSH 4.4 up to versions before 4.9 allows remote authenticated users to bypass the sshd_config ForceCommand directive by modifying the .ssh/rc session file.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1657"}
+| 
+| {"id": "CVE-2008-1483", "title": "OpenSSH 4.3p2, and probably other versions, allows local users to hijack forwarded X connections by causing ssh to set DISPLAY to :10, even when another process is listening on the associated port, as demonstrated by opening TCP port 6010 (IPv4) and sniffing a cookie sent by Emacs.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1483"}
+| 
+| {"id": "CVE-2007-6415", "title": "scponly 4.6 and earlier allows remote authenticated users to bypass intended restrictions and execute arbitrary code by invoking scp, as implemented by OpenSSH, with the -F and -o options.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6415"}
+| 
+| {"id": "CVE-2007-5715", "title": "DenyHosts 2.6 processes OpenSSH sshd "not listed in AllowUsers" log messages with an incorrect regular expression that does not match an IP address, which might allow remote attackers to avoid detection and blocking when making invalid login attempts with a username not present in AllowUsers, as demonstrated by the root username, a different vulnerability than CVE-2007-4323.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5715"}
+| 
+| {"id": "CVE-2007-4752", "title": "ssh in OpenSSH before 4.7 does not properly handle when an untrusted cookie cannot be created and uses a trusted X11 cookie instead, which allows attackers to violate intended policy and gain privileges by causing an X client to be treated as trusted.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4752"}
+| 
+| {"id": "CVE-2007-4654", "title": "Unspecified vulnerability in SSHield 1.6.1 with OpenSSH 3.0.2p1 on Cisco WebNS 8.20.0.1 on Cisco Content Services Switch (CSS) series 11000 devices allows remote attackers to cause a denial of service (connection slot exhaustion and device crash) via a series of large packets designed to exploit the SSH CRC32 attack detection overflow (CVE-2001-0144), possibly a related issue to CVE-2002-1024.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4654"}
+| 
+| {"id": "CVE-2007-3102", "title": "Unspecified vulnerability in the linux_audit_record_event function in OpenSSH 4.3p2, as used on Fedora Core 6 and possibly other systems, allows remote attackers to write arbitrary characters to an audit log via a crafted username.  NOTE: some of these details are obtained from third party information.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3102"}
+| 
+| {"id": "CVE-2007-2768", "title": "OpenSSH, when using OPIE (One-Time Passwords in Everything) for PAM, allows remote attackers to determine the existence of certain user accounts, which displays a different response if the user account exists and is configured to use one-time passwords (OTP), a similar issue to CVE-2007-2243.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2768"}
+| 
+| {"id": "CVE-2007-2243", "title": "OpenSSH 4.6 and earlier, when ChallengeResponseAuthentication is enabled, allows remote attackers to determine the existence of user accounts by attempting to authenticate via S/KEY, which displays a different response if the user account exists, a similar issue to CVE-2001-1483.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2243"}
+| 
+| {"id": "CVE-2007-0726", "title": "The SSH key generation process in OpenSSH in Apple Mac OS X 10.3.9 and 10.4 through 10.4.8 allows remote attackers to cause a denial of service by connecting to the server before SSH has finished creating keys, which causes the keys to be regenerated and can break trust relationships that were based on the original keys.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0726"}
+| 
+| {"id": "CVE-2006-5794", "title": "Unspecified vulnerability in the sshd Privilege Separation Monitor in OpenSSH before 4.5 causes weaker verification that authentication has been successful, which might allow attackers to bypass authentication. NOTE: as of 20061108, it is believed that this issue is only exploitable by leveraging vulnerabilities in the unprivileged process, which are not known to exist.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5794"}
+| 
+| {"id": "CVE-2006-5229", "title": "OpenSSH portable 4.1 on SUSE Linux, and possibly other platforms and versions, and possibly under limited configurations, allows remote attackers to determine valid usernames via timing discrepancies in which responses take longer for valid usernames than invalid ones, as demonstrated by sshtime.  NOTE: as of 20061014, it appears that this issue is dependent on the use of manually-set passwords that causes delays when processing /etc/shadow due to an increased number of rounds.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5229"}
+| 
+| {"id": "CVE-2006-5052", "title": "Unspecified vulnerability in portable OpenSSH before 4.4, when running on some platforms, allows remote attackers to determine the validity of usernames via unknown vectors involving a GSSAPI "authentication abort."\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5052"}
+| 
+| {"id": "CVE-2006-5051", "title": "Signal handler race condition in OpenSSH before 4.4 allows remote attackers to cause a denial of service (crash), and possibly execute arbitrary code if GSSAPI authentication is enabled, via unspecified vectors that lead to a double-free.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5051"}
+| 
+| {"id": "CVE-2006-4925", "title": "packet.c in ssh in OpenSSH allows remote attackers to cause a denial of service (crash) by sending an invalid protocol sequence with USERAUTH_SUCCESS before NEWKEYS, which causes newkeys[mode] to be NULL.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4925"}
+| 
+| {"id": "CVE-2006-4924", "title": "sshd in OpenSSH before 4.4, when using the version 1 SSH protocol, allows remote attackers to cause a denial of service (CPU consumption) via an SSH packet that contains duplicate blocks, which is not properly handled by the CRC compensation attack detector.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4924"}
+| 
+| {"id": "CVE-2006-0883", "title": "OpenSSH on FreeBSD 5.3 and 5.4, when used with OpenPAM, does not properly handle when a forked child process terminates during PAM authentication, which allows remote attackers to cause a denial of service (client connection refusal) by connecting multiple times to the SSH server, waiting for the password prompt, then disconnecting.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0883"}
+| 
+| {"id": "CVE-2006-0393", "title": "OpenSSH in Apple Mac OS X 10.4.7 allows remote attackers to cause a denial of service or determine account existence by attempting to log in using an invalid user, which causes the server to hang.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0393"}
+| 
+| {"id": "CVE-2006-0225", "title": "scp in OpenSSH 4.2p1 allows attackers to execute arbitrary commands via filenames that contain shell metacharacters or spaces, which are expanded twice.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0225"}
+| 
+| {"id": "CVE-2005-2798", "title": "sshd in OpenSSH before 4.2, when GSSAPIDelegateCredentials is enabled, allows GSSAPI credentials to be delegated to clients who log in using non-GSSAPI methods, which could cause those credentials to be exposed to untrusted users or hosts.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2798"}
+| 
+| {"id": "CVE-2005-2797", "title": "OpenSSH 4.0, and other versions before 4.2, does not properly handle dynamic port forwarding ("-D" option) when a listen address is not provided, which may cause OpenSSH to enable the GatewayPorts functionality.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2797"}
+| 
+| {"id": "CVE-2005-2666", "title": "SSH, as implemented in OpenSSH before 4.0 and possibly other implementations, stores hostnames, IP addresses, and keys in plaintext in the known_hosts file, which makes it easier for an attacker that has compromised an SSH user's account to generate a list of additional targets that are more likely to have the same password or key.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2666"}
+| 
+| {"id": "CVE-2004-2760", "title": "sshd in OpenSSH 3.5p1, when PermitRootLogin is disabled, immediately closes the TCP connection after a root login attempt with the correct password, but leaves the connection open after an attempt with an incorrect password, which makes it easier for remote attackers to guess the password by observing the connection state, a different vulnerability than CVE-2003-0190.  NOTE: it could be argued that in most environments, this does not cross privilege boundaries without requiring leverage of a separate vulnerability.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2760"}
+| 
+| {"id": "CVE-2004-2414", "title": "Novell NetWare 6.5 SP 1.1, when installing or upgrading using the Overlay CDs and performing a custom installation with OpenSSH, includes sensitive password information in the (1) NIOUTPUT.TXT and (2) NI.LOG log files, which might allow local users to obtain the passwords.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2414"}
+| 
+| {"id": "CVE-2004-2069", "title": "sshd.c in OpenSSH 3.6.1p2 and 3.7.1p2 and possibly other versions, when using privilege separation, does not properly signal the non-privileged process when a session has been terminated after exceeding the LoginGraceTime setting, which leaves the connection open and allows remote attackers to cause a denial of service (connection consumption).\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2069"}
+| 
+| {"id": "CVE-2004-1653", "title": "The default configuration for OpenSSH enables AllowTcpForwarding, which could allow remote authenticated users to perform a port bounce, when configured with an anonymous access program such as AnonCVS.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1653"}
+| 
+| {"id": "CVE-2004-0175", "title": "Directory traversal vulnerability in scp for OpenSSH before 3.4p1 allows remote malicious servers to overwrite arbitrary files.  NOTE: this may be a rediscovery of CVE-2000-0992.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0175"}
+| 
+| {"id": "CVE-2003-1562", "title": "sshd in OpenSSH 3.6.1p2 and earlier, when PermitRootLogin is disabled and using PAM keyboard-interactive authentication, does not insert a delay after a root login attempt with the correct password, which makes it easier for remote attackers to use timing differences to determine if the password step of a multi-step authentication is successful, a different vulnerability than CVE-2003-0190.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1562"}
+| 
+| {"id": "CVE-2003-0787", "title": "The PAM conversation function in OpenSSH 3.7.1 and 3.7.1p1 interprets an array of structures as an array of pointers, which allows attackers to modify the stack and possibly gain privileges.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0787"}
+| 
+| {"id": "CVE-2003-0786", "title": "The SSH1 PAM challenge response authentication in OpenSSH 3.7.1 and 3.7.1p1, when Privilege Separation is disabled, does not check the result of the authentication attempt, which can allow remote attackers to gain privileges.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0786"}
+| 
+| {"id": "CVE-2003-0695", "title": "Multiple "buffer management errors" in OpenSSH before 3.7.1 may allow attackers to cause a denial of service or execute arbitrary code using (1) buffer_init in buffer.c, (2) buffer_free in buffer.c, or (3) a separate function in channels.c, a different vulnerability than CVE-2003-0693.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0695"}
+| 
+| {"id": "CVE-2003-0693", "title": "A "buffer management error" in buffer_append_space of buffer.c for OpenSSH before 3.7 may allow remote attackers to execute arbitrary code by causing an incorrect amount of memory to be freed and corrupting the heap, a different vulnerability than CVE-2003-0695.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0693"}
+| 
+| {"id": "CVE-2003-0682", "title": ""Memory bugs" in OpenSSH 3.7.1 and earlier, with unknown impact, a different set of vulnerabilities than CVE-2003-0693 and CVE-2003-0695.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0682"}
+| 
+| {"id": "CVE-2003-0386", "title": "OpenSSH 3.6.1 and earlier, when restricting host access by numeric IP addresses and with VerifyReverseMapping disabled, allows remote attackers to bypass "from=" and "user@host" address restrictions by connecting to a host from a system whose reverse DNS hostname contains the numeric IP address.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0386"}
+| 
+| {"id": "CVE-2003-0190", "title": "OpenSSH-portable (OpenSSH) 3.6.1p1 and earlier with PAM support enabled immediately sends an error message when a user does not exist, which allows remote attackers to determine valid usernames via a timing attack.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0190"}
+| 
+| {"id": "CVE-2002-0765", "title": "sshd in OpenSSH 3.2.2, when using YP with netgroups and under certain conditions, may allow users to successfully authenticate and log in with another user's password.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0765"}
+| 
+| {"id": "CVE-2002-0640", "title": "Buffer overflow in sshd in OpenSSH 2.3.1 through 3.3 may allow remote attackers to execute arbitrary code via a large number of responses during challenge response authentication when OpenBSD is using PAM modules with interactive keyboard authentication (PAMAuthenticationViaKbdInt).\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0640"}
+| 
+| {"id": "CVE-2002-0639", "title": "Integer overflow in sshd in OpenSSH 2.9.9 through 3.3 allows remote attackers to execute arbitrary code during challenge response authentication (ChallengeResponseAuthentication) when OpenSSH is using SKEY or BSD_AUTH authentication.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0639"}
+| 
+| {"id": "CVE-2002-0575", "title": "Buffer overflow in OpenSSH before 2.9.9, and 3.x before 3.2.1, with Kerberos/AFS support and KerberosTgtPassing or AFSTokenPassing enabled, allows remote and local authenticated users to gain privileges.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0575"}
+| 
+| {"id": "CVE-2002-0083", "title": "Off-by-one error in the channel code of OpenSSH 2.0 through 3.0.2 allows local users or remote malicious servers to gain privileges.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0083"}
+| 
+| {"id": "CVE-2001-1585", "title": "SSH protocol 2 (aka SSH-2) public key authentication in the development snapshot of OpenSSH 2.3.1, available from 2001-01-18 through 2001-02-08, does not perform a challenge-response step to ensure that the client has the proper private key, which allows remote attackers to bypass authentication as other users by supplying a public key from that user's authorized_keys file.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-1585"}
+| 
+| {"id": "CVE-2001-1507", "title": "OpenSSH before 3.0.1 with Kerberos V enabled does not properly authenticate users, which could allow remote attackers to login unchallenged.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-1507"}
+| 
+| {"id": "CVE-2001-1459", "title": "OpenSSH 2.9 and earlier does not initiate a Pluggable Authentication Module (PAM) session if commands are executed with no pty, which allows local users to bypass resource limits (rlimits) set in pam.d.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-1459"}
+| 
+| {"id": "CVE-2001-1382", "title": "The "echo simulation" traffic analysis countermeasure in OpenSSH before 2.9.9p2 sends an additional echo packet after the password and carriage return is entered, which could allow remote attackers to determine that the countermeasure is being used.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-1382"}
+| 
+| {"id": "CVE-2001-1380", "title": "OpenSSH before 2.9.9, while using keypairs and multiple keys of different types in the ~/.ssh/authorized_keys2 file, may not properly handle the "from" option associated with a key, which could allow remote attackers to login from unauthorized IP addresses.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-1380"}
+| 
+| {"id": "CVE-2001-1029", "title": "libutil in OpenSSH on FreeBSD 4.4 and earlier does not drop privileges before verifying the capabilities for reading the copyright and welcome files, which allows local users to bypass the capabilities checks and read arbitrary files by specifying alternate copyright or welcome files.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-1029"}
+| 
+| {"id": "CVE-2001-0872", "title": "OpenSSH 3.0.1 and earlier with UseLogin enabled does not properly cleanse critical environment variables such as LD_PRELOAD, which allows local users to gain root privileges.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0872"}
+| 
+| {"id": "CVE-2001-0816", "title": "OpenSSH before 2.9.9, when running sftp using sftp-server and using restricted keypairs, allows remote authenticated users to bypass authorized_keys2 command= restrictions using sftp commands.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0816"}
+| 
+| {"id": "CVE-2001-0572", "title": "The SSH protocols 1 and 2 (aka SSH-2) as implemented in OpenSSH and other packages have various weaknesses which can allow a remote attacker to obtain the following information via sniffing: (1) password lengths or ranges of lengths, which simplifies brute force password guessing, (2) whether RSA or DSA authentication is being used, (3) the number of authorized_keys in RSA authentication, or (4) the lengths of shell commands.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0572"}
+| 
+| {"id": "CVE-2001-0529", "title": "OpenSSH version 2.9 and earlier, with X forwarding enabled, allows a local attacker to delete any file named 'cookies' via a symlink attack.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0529"}
+| 
+| {"id": "CVE-2001-0361", "title": "Implementations of SSH version 1.5, including (1) OpenSSH up to version 2.3.0, (2) AppGate, and (3) ssh-1 up to version 1.2.31, in certain configurations, allow a remote attacker to decrypt and/or alter traffic via a "Bleichenbacher attack" on PKCS#1 version 1.5.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0361"}
+| 
+| {"id": "CVE-2000-1169", "title": "OpenSSH SSH client before 2.3.0 does not properly disable X11 or agent forwarding, which could allow a malicious SSH server to gain access to the X11 display and sniff X11 events, or gain access to the ssh-agent.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-1169"}
+| 
+| {"id": "CVE-2000-0535", "title": "OpenSSL 0.9.4 and OpenSSH for FreeBSD do not properly check for the existence of the /dev/random or /dev/urandom devices, which are absent on FreeBSD Alpha systems, which causes them to produce weak keys which may be more easily broken.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0535"}
+| 
+| {"id": "CVE-2000-0525", "title": "OpenSSH does not properly drop privileges when the UseLogin option is enabled, which allows local users to execute arbitrary commands by providing the command to the ssh daemon.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0525"}
+| 
+| {"id": "CVE-1999-0661", "title": "A system is running a version of software that was replaced with a Trojan Horse at one of its distribution points, such as (1) TCP Wrappers 7.6, (2) util-linux 2.9g, (3) wuarchive ftpd (wuftpd) 2.2 and 2.1f, (4) IRC client (ircII) ircII 2.2.9, (5) OpenSSH 3.4p1, or (6) Sendmail 8.12.6.\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0661"}
+| 
+| 
+| SecurityFocus - https://www.securityfocus.com/bid/:
+| {"id": "65674", "title": "OpenSSH 'ssh-keysign.c' Local Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/65674"}
+| 
+| {"id": "65230", "title": "OpenSSH 'schnorr.c' Remote Memory Corruption Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/65230"}
+| 
+| {"id": "63605", "title": "OpenSSH 'sshd' Process Remote Memory Corruption Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/63605"}
+| 
+| {"id": "61286", "title": "OpenSSH Remote Denial of Service Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/61286"}
+| 
+| {"id": "58894", "title": "GSI-OpenSSH PAM_USER Security Bypass Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/58894"}
+| 
+| {"id": "58162", "title": "OpenSSH CVE-2010-5107 Denial of Service Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/58162"}
+| 
+| {"id": "54114", "title": "OpenSSH 'ssh_gssapi_parse_ename()' Function Denial of Service Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/54114"}
+| 
+| {"id": "51702", "title": "Debian openssh-server Forced Command Handling Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/51702"}
+| 
+| {"id": "50416", "title": "Linux Kernel 'kdump' and 'mkdumprd' OpenSSH Integration Remote Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/50416"}
+| 
+| {"id": "49473", "title": "OpenSSH Ciphersuite Specification Information Disclosure Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/49473"}
+| 
+| {"id": "48507", "title": "OpenSSH 'pam_thread()' Remote Buffer Overflow Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/48507"}
+| 
+| {"id": "47691", "title": "Portable OpenSSH 'ssh-keysign' Local Unauthorized Access Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/47691"}
+| 
+| {"id": "46155", "title": "OpenSSH Legacy Certificate Signing Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/46155"}
+| 
+| {"id": "45304", "title": "OpenSSH J-PAKE Security Bypass Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/45304"}
+| 
+| {"id": "36552", "title": "Red Hat Enterprise Linux OpenSSH 'ChrootDirectory' Option Local Privilege Escalation Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/36552"}
+| 
+| {"id": "32319", "title": "OpenSSH CBC Mode Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/32319"}
+| 
+| {"id": "30794", "title": "Red Hat OpenSSH Backdoor Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/30794"}
+| 
+| {"id": "30339", "title": "OpenSSH 'X11UseLocalhost' X11 Forwarding Session Hijacking Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/30339"}
+| 
+| {"id": "30276", "title": "Debian OpenSSH SELinux Privilege Escalation Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/30276"}
+| 
+| {"id": "28531", "title": "OpenSSH ForceCommand Command Execution Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/28531"}
+| 
+| {"id": "28444", "title": "OpenSSH X Connections Session Hijacking Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/28444"}
+| 
+| {"id": "26097", "title": "OpenSSH LINUX_AUDIT_RECORD_EVENT Remote Log Injection Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/26097"}
+| 
+| {"id": "25628", "title": "OpenSSH X11 Cookie Local Authentication Bypass Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/25628"}
+| 
+| {"id": "23601", "title": "OpenSSH S/Key Remote Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/23601"}
+| 
+| {"id": "20956", "title": "OpenSSH Privilege Separation Key Signature Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/20956"}
+| 
+| {"id": "20418", "title": "OpenSSH-Portable Existing Password Remote Information Disclosure Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/20418"}
+| 
+| {"id": "20245", "title": "OpenSSH-Portable GSSAPI Authentication Abort Information Disclosure Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/20245"}
+| 
+| {"id": "20241", "title": "Portable OpenSSH GSSAPI Remote Code Execution Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/20241"}
+| 
+| {"id": "20216", "title": "OpenSSH Duplicated Block Remote Denial of Service Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/20216"}
+| 
+| {"id": "16892", "title": "OpenSSH Remote PAM Denial Of Service Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/16892"}
+| 
+| {"id": "14963", "title": "OpenSSH LoginGraceTime Remote Denial Of Service Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/14963"}
+| 
+| {"id": "14729", "title": "OpenSSH GSSAPI Credential Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/14729"}
+| 
+| {"id": "14727", "title": "OpenSSH DynamicForward Inadvertent GatewayPorts Activation Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/14727"}
+| 
+| {"id": "11781", "title": "OpenSSH-portable PAM Authentication Remote Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/11781"}
+| 
+| {"id": "9986", "title": "RCP, OpenSSH SCP Client File Corruption Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/9986"}
+| 
+| {"id": "9040", "title": "OpenSSH PAM Conversation Memory Scrubbing Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/9040"}
+| 
+| {"id": "8677", "title": "Multiple Portable OpenSSH PAM Vulnerabilities\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/8677"}
+| 
+| {"id": "8628", "title": "OpenSSH Buffer Mismanagement Vulnerabilities\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/8628"}
+| 
+| {"id": "7831", "title": "OpenSSH Reverse DNS Lookup Access Control Bypass Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/7831"}
+| 
+| {"id": "7482", "title": "OpenSSH Remote Root Authentication Timing Side-Channel Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/7482"}
+| 
+| {"id": "7467", "title": "OpenSSH-portable Enabled PAM Delay Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/7467"}
+| 
+| {"id": "7343", "title": "OpenSSH Authentication Execution Path Timing Information Leakage Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/7343"}
+| 
+| {"id": "6168", "title": "OpenSSH Visible Password Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/6168"}
+| 
+| {"id": "5374", "title": "OpenSSH Trojan Horse Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/5374"}
+| 
+| {"id": "5093", "title": "OpenSSH Challenge-Response Buffer Overflow Vulnerabilities\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/5093"}
+| 
+| {"id": "4560", "title": "OpenSSH Kerberos 4 TGT/AFS Token Buffer Overflow Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/4560"}
+| 
+| {"id": "4241", "title": "OpenSSH Channel Code Off-By-One Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/4241"}
+| 
+| {"id": "3614", "title": "OpenSSH UseLogin Environment Variable Passing Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/3614"}
+| 
+| {"id": "3560", "title": "OpenSSH Kerberos Arbitrary Privilege Elevation Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/3560"}
+| 
+| {"id": "3369", "title": "OpenSSH Key Based Source IP Access Control Bypass Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/3369"}
+| 
+| {"id": "3345", "title": "OpenSSH SFTP Command Restriction Bypassing Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/3345"}
+| 
+| {"id": "2917", "title": "OpenSSH PAM Session Evasion Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/2917"}
+| 
+| {"id": "2825", "title": "OpenSSH Client X11 Forwarding Cookie Removal File Symbolic Link Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/2825"}
+| 
+| {"id": "2356", "title": "OpenSSH Private Key Authentication Check Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/2356"}
+| 
+| {"id": "1949", "title": "OpenSSH Client Unauthorized Remote Forwarding Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/1949"}
+| 
+| {"id": "1334", "title": "OpenSSH UseLogin Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securityfocus.com/bid/1334"}
+| 
+| 
+| IBM X-Force - https://exchange.xforce.ibmcloud.com:
+| {"id": "83258", "title": "GSI-OpenSSH auth-pam.c security bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/83258"}
+| 
+| {"id": "82781", "title": "OpenSSH time limit denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/82781"}
+| 
+| {"id": "82231", "title": "OpenSSH pam_ssh_agent_auth PAM code execution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/82231"}
+| 
+| {"id": "74809", "title": "OpenSSH ssh_gssapi_parse_ename denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/74809"}
+| 
+| {"id": "72756", "title": "Debian openssh-server commands information disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/72756"}
+| 
+| {"id": "68339", "title": "OpenSSH pam_thread buffer overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/68339"}
+| 
+| {"id": "67264", "title": "OpenSSH ssh-keysign unauthorized access\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/67264"}
+| 
+| {"id": "65910", "title": "OpenSSH remote_glob function denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/65910"}
+| 
+| {"id": "65163", "title": "OpenSSH certificate information disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/65163"}
+| 
+| {"id": "64387", "title": "OpenSSH J-PAKE security bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/64387"}
+| 
+| {"id": "63337", "title": "Cisco Unified Videoconferencing OpenSSH weak security\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/63337"}
+| 
+| {"id": "46620", "title": "OpenSSH and multiple SSH Tectia products CBC mode information disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/46620"}
+| 
+| {"id": "45202", "title": "OpenSSH signal handler denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/45202"}
+| 
+| {"id": "44747", "title": "RHEL OpenSSH backdoor\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/44747"}
+| 
+| {"id": "44280", "title": "OpenSSH PermitRootLogin information disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/44280"}
+| 
+| {"id": "44279", "title": "OpenSSH sshd weak security\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/44279"}
+| 
+| {"id": "44037", "title": "OpenSSH sshd SELinux role unauthorized access\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/44037"}
+| 
+| {"id": "43940", "title": "OpenSSH X11 forwarding information disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/43940"}
+| 
+| {"id": "41549", "title": "OpenSSH ForceCommand directive security bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/41549"}
+| 
+| {"id": "41438", "title": "OpenSSH sshd session hijacking\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/41438"}
+| 
+| {"id": "40897", "title": "OpenSSH known_hosts weak security\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/40897"}
+| 
+| {"id": "40587", "title": "OpenSSH username weak security\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/40587"}
+| 
+| {"id": "37371", "title": "OpenSSH username data manipulation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/37371"}
+| 
+| {"id": "37118", "title": "RHSA update for OpenSSH privilege separation monitor authentication verification weakness not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/37118"}
+| 
+| {"id": "37112", "title": "RHSA update for OpenSSH signal handler race condition not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/37112"}
+| 
+| {"id": "37107", "title": "RHSA update for OpenSSH identical block denial of service not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/37107"}
+| 
+| {"id": "36637", "title": "OpenSSH X11 cookie privilege escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/36637"}
+| 
+| {"id": "35167", "title": "OpenSSH packet.c newkeys[mode] denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/35167"}
+| 
+| {"id": "34490", "title": "OpenSSH OPIE information disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/34490"}
+| 
+| {"id": "33794", "title": "OpenSSH ChallengeResponseAuthentication information disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/33794"}
+| 
+| {"id": "32975", "title": "Apple Mac OS X OpenSSH denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/32975"}
+| 
+| {"id": "32387", "title": "RHSA-2006:0738 updates for openssh not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/32387"}
+| 
+| {"id": "32359", "title": "RHSA-2006:0697 updates for openssh not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/32359"}
+| 
+| {"id": "32230", "title": "RHSA-2006:0298 updates for openssh not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/32230"}
+| 
+| {"id": "32132", "title": "RHSA-2006:0044 updates for openssh not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/32132"}
+| 
+| {"id": "30120", "title": "OpenSSH privilege separation monitor authentication verification weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/30120"}
+| 
+| {"id": "29255", "title": "OpenSSH GSSAPI user enumeration\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/29255"}
+| 
+| {"id": "29254", "title": "OpenSSH signal handler race condition\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/29254"}
+| 
+| {"id": "29158", "title": "OpenSSH identical block denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/29158"}
+| 
+| {"id": "28147", "title": "Apple Mac OS X OpenSSH nonexistent user login denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/28147"}
+| 
+| {"id": "25116", "title": "OpenSSH OpenPAM denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/25116"}
+| 
+| {"id": "24305", "title": "OpenSSH SCP shell expansion command execution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/24305"}
+| 
+| {"id": "22665", "title": "RHSA-2005:106 updates for openssh not installed\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/22665"}
+| 
+| {"id": "22117", "title": "OpenSSH GSSAPI allows elevated privileges\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/22117"}
+| 
+| {"id": "22115", "title": "OpenSSH GatewayPorts security bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/22115"}
+| 
+| {"id": "20930", "title": "OpenSSH sshd.c LoginGraceTime denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/20930"}
+| 
+| {"id": "19441", "title": "Sun Solaris OpenSSH LDAP (1) client authentication denial of service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/19441"}
+| 
+| {"id": "17213", "title": "OpenSSH allows port bouncing attacks\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/17213"}
+| 
+| {"id": "16323", "title": "OpenSSH scp file overwrite\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/16323"}
+| 
+| {"id": "13797", "title": "OpenSSH PAM information leak\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/13797"}
+| 
+| {"id": "13271", "title": "OpenSSH could allow an attacker to corrupt the PAM conversion stack\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/13271"}
+| 
+| {"id": "13264", "title": "OpenSSH PAM code could allow an attacker to gain access\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/13264"}
+| 
+| {"id": "13215", "title": "OpenSSH buffer management errors could allow an attacker to execute code\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/13215"}
+| 
+| {"id": "13214", "title": "OpenSSH memory vulnerabilities\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/13214"}
+| 
+| {"id": "13191", "title": "OpenSSH large packet buffer overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/13191"}
+| 
+| {"id": "12196", "title": "OpenSSH could allow an attacker to bypass login restrictions\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/12196"}
+| 
+| {"id": "11970", "title": "OpenSSH could allow an attacker to obtain valid administrative account\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/11970"}
+| 
+| {"id": "11902", "title": "OpenSSH PAM support enabled information leak\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/11902"}
+| 
+| {"id": "9803", "title": "OpenSSH &quot", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/9803"}
+| 
+| {"id": "9763", "title": "OpenSSH downloaded from the OpenBSD FTP site or OpenBSD FTP mirror sites could contain a Trojan Horse\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/9763"}
+| 
+| {"id": "9307", "title": "OpenSSH is running on the system\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/9307"}
+| 
+| {"id": "9169", "title": "OpenSSH &quot", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/9169"}
+| 
+| {"id": "8896", "title": "OpenSSH Kerberos 4 TGT/AFS buffer overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/8896"}
+| 
+| {"id": "8697", "title": "FreeBSD libutil in OpenSSH fails to drop privileges prior to using the login class capability database\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/8697"}
+| 
+| {"id": "8383", "title": "OpenSSH off-by-one error in channel code\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/8383"}
+| 
+| {"id": "7647", "title": "OpenSSH UseLogin option arbitrary code execution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/7647"}
+| 
+| {"id": "7634", "title": "OpenSSH using sftp and restricted keypairs could allow an attacker to bypass restrictions\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/7634"}
+| 
+| {"id": "7598", "title": "OpenSSH with Kerberos allows attacker to gain elevated privileges\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/7598"}
+| 
+| {"id": "7179", "title": "OpenSSH source IP access control bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/7179"}
+| 
+| {"id": "6757", "title": "OpenSSH &quot", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/6757"}
+| 
+| {"id": "6676", "title": "OpenSSH X11 forwarding symlink attack could allow deletion of arbitrary files\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/6676"}
+| 
+| {"id": "6084", "title": "OpenSSH 2.3.1 allows remote users to bypass authentication\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/6084"}
+| 
+| {"id": "5517", "title": "OpenSSH allows unauthorized access to resources\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/5517"}
+| 
+| {"id": "4646", "title": "OpenSSH UseLogin option allows remote users to execute commands as root\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/4646"}
+| 
+| 
+| Exploit-DB - https://www.exploit-db.com:
+| {"id": "21579", "title": "OpenSSH 3.x Challenge-Response Buffer Overflow Vulnerabilities (2)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/21579"}
+| 
+| {"id": "21578", "title": "OpenSSH 3.x Challenge-Response Buffer Overflow Vulnerabilities (1)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/21578"}
+| 
+| {"id": "21402", "title": "OpenSSH 2.x/3.x Kerberos 4 TGT/AFS Token Buffer Overflow Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/21402"}
+| 
+| {"id": "21314", "title": "OpenSSH 2.x/3.0.1/3.0.2 Channel Code Off-By-One Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/21314"}
+| 
+| {"id": "20253", "title": "OpenSSH 1.2 scp File Create/Overwrite Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/20253"}
+| 
+| {"id": "17462", "title": "FreeBSD OpenSSH 3.5p1 - Remote Root Exploit\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/17462"}
+| 
+| {"id": "14866", "title": "Novell Netware 6.5 - OpenSSH Remote Stack Overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/14866"}
+| 
+| {"id": "6094", "title": "Debian OpenSSH Remote SELinux Privilege Elevation Exploit (auth)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/6094"}
+| 
+| {"id": "3303", "title": "Portable OpenSSH <= 3.6.1p-PAM / 4.1-SUSE Timing Attack Exploit\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/3303"}
+| 
+| {"id": "2444", "title": "OpenSSH <= 4.3 p1 (Duplicated Block) Remote Denial of Service Exploit\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/2444"}
+| 
+| {"id": "1572", "title": "Dropbear / OpenSSH Server (MAX_UNAUTH_CLIENTS) Denial of Service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/1572"}
+| 
+| {"id": "258", "title": "glibc-2.2 and openssh-2.3.0p1 exploits glibc => 2.1.9x\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/258"}
+| 
+| {"id": "26", "title": "OpenSSH/PAM <= 3.6.1p1 Remote Users Ident (gossh.sh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/26"}
+| 
+| {"id": "25", "title": "OpenSSH/PAM <= 3.6.1p1 Remote Users Discovery Tool\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.exploit-db.com/exploits/25"}
+| 
+| 
+| OpenVAS (Nessus) - http://www.openvas.org:
+| {"id": "902488", "title": "OpenSSH 'sshd' GSSAPI Credential Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/902488"}
+| 
+| {"id": "900179", "title": "OpenSSH CBC Mode Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/900179"}
+| 
+| {"id": "881183", "title": "CentOS Update for openssh CESA-2012:0884 centos6 \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/881183"}
+| 
+| {"id": "880802", "title": "CentOS Update for openssh CESA-2009:1287 centos5 i386\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/880802"}
+| 
+| {"id": "880746", "title": "CentOS Update for openssh CESA-2009:1470 centos5 i386\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/880746"}
+| 
+| {"id": "870763", "title": "RedHat Update for openssh RHSA-2012:0884-04\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/870763"}
+| 
+| {"id": "870129", "title": "RedHat Update for openssh RHSA-2008:0855-01\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/870129"}
+| 
+| {"id": "861813", "title": "Fedora Update for openssh FEDORA-2010-5429\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/861813"}
+| 
+| {"id": "861319", "title": "Fedora Update for openssh FEDORA-2007-395\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/861319"}
+| 
+| {"id": "861170", "title": "Fedora Update for openssh FEDORA-2007-394\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/861170"}
+| 
+| {"id": "861012", "title": "Fedora Update for openssh FEDORA-2007-715\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/861012"}
+| 
+| {"id": "840345", "title": "Ubuntu Update for openssh vulnerability USN-597-1\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/840345"}
+| 
+| {"id": "840300", "title": "Ubuntu Update for openssh update USN-612-5\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/840300"}
+| 
+| {"id": "840271", "title": "Ubuntu Update for openssh vulnerability USN-612-2\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/840271"}
+| 
+| {"id": "840268", "title": "Ubuntu Update for openssh update USN-612-7\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/840268"}
+| 
+| {"id": "840259", "title": "Ubuntu Update for openssh vulnerabilities USN-649-1\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/840259"}
+| 
+| {"id": "840214", "title": "Ubuntu Update for openssh vulnerability USN-566-1\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/840214"}
+| 
+| {"id": "831074", "title": "Mandriva Update for openssh MDVA-2010:162 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/831074"}
+| 
+| {"id": "830929", "title": "Mandriva Update for openssh MDVA-2010:090 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/830929"}
+| 
+| {"id": "830807", "title": "Mandriva Update for openssh MDVA-2010:026 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/830807"}
+| 
+| {"id": "830603", "title": "Mandriva Update for openssh MDVSA-2008:098 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/830603"}
+| 
+| {"id": "830523", "title": "Mandriva Update for openssh MDVSA-2008:078 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/830523"}
+| 
+| {"id": "830317", "title": "Mandriva Update for openssh-askpass-qt MDKA-2007:127 (openssh-askpass-qt)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/830317"}
+| 
+| {"id": "830191", "title": "Mandriva Update for openssh MDKSA-2007:236 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/830191"}
+| 
+| {"id": "802407", "title": "OpenSSH 'sshd' Challenge Response Authentication Buffer Overflow Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/802407"}
+| 
+| {"id": "103503", "title": "openssh-server Forced Command Handling Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/103503"}
+| 
+| {"id": "103247", "title": "OpenSSH Ciphersuite Specification Information Disclosure Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/103247"}
+| 
+| {"id": "103064", "title": "OpenSSH Legacy Certificate Signing Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/103064"}
+| 
+| {"id": "100584", "title": "OpenSSH X Connections Session Hijacking Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/100584"}
+| 
+| {"id": "100153", "title": "OpenSSH CBC Mode Information Disclosure Vulnerability\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/100153"}
+| 
+| {"id": "66170", "title": "CentOS Security Advisory CESA-2009:1470 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/66170"}
+| 
+| {"id": "65987", "title": "SLES10: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65987"}
+| 
+| {"id": "65819", "title": "SLES10: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65819"}
+| 
+| {"id": "65514", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65514"}
+| 
+| {"id": "65513", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65513"}
+| 
+| {"id": "65334", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65334"}
+| 
+| {"id": "65248", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65248"}
+| 
+| {"id": "65218", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65218"}
+| 
+| {"id": "65169", "title": "SLES9: Security update for openssh,openssh-askpass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65169"}
+| 
+| {"id": "65126", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65126"}
+| 
+| {"id": "65019", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65019"}
+| 
+| {"id": "65015", "title": "SLES9: Security update for OpenSSH\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/65015"}
+| 
+| {"id": "64931", "title": "CentOS Security Advisory CESA-2009:1287 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/64931"}
+| 
+| {"id": "61639", "title": "Debian Security Advisory DSA 1638-1 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/61639"}
+| 
+| {"id": "61030", "title": "Debian Security Advisory DSA 1576-2 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/61030"}
+| 
+| {"id": "61029", "title": "Debian Security Advisory DSA 1576-1 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/61029"}
+| 
+| {"id": "60840", "title": "FreeBSD Security Advisory (FreeBSD-SA-08:05.openssh.asc)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/60840"}
+| 
+| {"id": "60803", "title": "Gentoo Security Advisory GLSA 200804-03 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/60803"}
+| 
+| {"id": "60667", "title": "Slackware Advisory SSA:2008-095-01 openssh \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/60667"}
+| 
+| {"id": "59014", "title": "Slackware Advisory SSA:2007-255-01 openssh \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/59014"}
+| 
+| {"id": "58741", "title": "Gentoo Security Advisory GLSA 200711-02 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/58741"}
+| 
+| {"id": "57919", "title": "Gentoo Security Advisory GLSA 200611-06 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/57919"}
+| 
+| {"id": "57895", "title": "Gentoo Security Advisory GLSA 200609-17 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/57895"}
+| 
+| {"id": "57585", "title": "Debian Security Advisory DSA 1212-1 (openssh (1:3.8.1p1-8.sarge.6))\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/57585"}
+| 
+| {"id": "57492", "title": "Slackware Advisory SSA:2006-272-02 openssh \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/57492"}
+| 
+| {"id": "57483", "title": "Debian Security Advisory DSA 1189-1 (openssh-krb5)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/57483"}
+| 
+| {"id": "57476", "title": "FreeBSD Security Advisory (FreeBSD-SA-06:22.openssh.asc)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/57476"}
+| 
+| {"id": "57470", "title": "FreeBSD Ports: openssh\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/57470"}
+| 
+| {"id": "56352", "title": "FreeBSD Security Advisory (FreeBSD-SA-06:09.openssh.asc)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/56352"}
+| 
+| {"id": "56330", "title": "Gentoo Security Advisory GLSA 200602-11 (OpenSSH)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/56330"}
+| 
+| {"id": "56294", "title": "Slackware Advisory SSA:2006-045-06 openssh \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/56294"}
+| 
+| {"id": "53964", "title": "Slackware Advisory SSA:2003-266-01 New OpenSSH packages \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/53964"}
+| 
+| {"id": "53885", "title": "Slackware Advisory SSA:2003-259-01 OpenSSH Security Advisory \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/53885"}
+| 
+| {"id": "53884", "title": "Slackware Advisory SSA:2003-260-01 OpenSSH updated again \x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/53884"}
+| 
+| {"id": "53788", "title": "Debian Security Advisory DSA 025-1 (openssh)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/53788"}
+| 
+| {"id": "52638", "title": "FreeBSD Security Advisory (FreeBSD-SA-03:15.openssh.asc)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/52638"}
+| 
+| {"id": "52635", "title": "FreeBSD Security Advisory (FreeBSD-SA-03:12.openssh.asc)\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/52635"}
+| 
+| {"id": "11343", "title": "OpenSSH Client Unauthorized Remote Forwarding\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/11343"}
+| 
+| {"id": "10954", "title": "OpenSSH AFS/Kerberos ticket/token passing\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/10954"}
+| 
+| {"id": "10883", "title": "OpenSSH Channel Code Off by 1\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/10883"}
+| 
+| {"id": "10823", "title": "OpenSSH UseLogin Environment Variables\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.tenable.com/plugins/nessus/10823"}
+| 
+| 
+| SecurityTracker - https://www.securitytracker.com:
+| {"id": "1028187", "title": "OpenSSH pam_ssh_agent_auth Module on Red Hat Enterprise Linux Lets Remote Users Execute Arbitrary Code\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1028187"}
+| 
+| {"id": "1026593", "title": "OpenSSH Lets Remote Authenticated Users Obtain Potentially Sensitive Information\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1026593"}
+| 
+| {"id": "1025739", "title": "OpenSSH on FreeBSD Has Buffer Overflow in pam_thread() That Lets Remote Users Execute Arbitrary Code\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1025739"}
+| 
+| {"id": "1025482", "title": "OpenSSH ssh-keysign Utility Lets Local Users Gain Elevated Privileges\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1025482"}
+| 
+| {"id": "1025028", "title": "OpenSSH Legacy Certificates May Disclose Stack Contents to Remote Users\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1025028"}
+| 
+| {"id": "1022967", "title": "OpenSSH on Red Hat Enterprise Linux Lets Remote Authenticated Users Gain Elevated Privileges\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1022967"}
+| 
+| {"id": "1021235", "title": "OpenSSH CBC Mode Error Handling May Let Certain Remote Users Obtain Plain Text in Certain Cases\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1021235"}
+| 
+| {"id": "1020891", "title": "OpenSSH on Debian Lets Remote Users Prevent Logins\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1020891"}
+| 
+| {"id": "1020730", "title": "OpenSSH for Red Hat Enterprise Linux Packages May Have Been Compromised\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1020730"}
+| 
+| {"id": "1020537", "title": "OpenSSH on HP-UX Lets Local Users Hijack X11 Sessions\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1020537"}
+| 
+| {"id": "1019733", "title": "OpenSSH Unsafe Default Configuration May Let Local Users Execute Arbitrary Commands\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1019733"}
+| 
+| {"id": "1019707", "title": "OpenSSH Lets Local Users Hijack Forwarded X Sessions in Certain Cases\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1019707"}
+| 
+| {"id": "1017756", "title": "Apple OpenSSH Key Generation Process Lets Remote Users Deny Service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1017756"}
+| 
+| {"id": "1017183", "title": "OpenSSH Privilege Separation Monitor Validation Error May Cause the Monitor to Fail to Properly Control the Unprivileged Process\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1017183"}
+| 
+| {"id": "1016940", "title": "OpenSSH Race Condition in Signal Handler Lets Remote Users Deny Service and May Potentially Permit Code Execution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1016940"}
+| 
+| {"id": "1016939", "title": "OpenSSH GSSAPI Authentication Abort Error Lets Remote Users Determine Valid Usernames\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1016939"}
+| 
+| {"id": "1016931", "title": "OpenSSH SSH v1 CRC Attack Detection Implementation Lets Remote Users Deny Service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1016931"}
+| 
+| {"id": "1016672", "title": "OpenSSH on Mac OS X Lets Remote Users Deny Service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1016672"}
+| 
+| {"id": "1015706", "title": "OpenSSH Interaction With OpenPAM Lets Remote Users Deny Service\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1015706"}
+| 
+| {"id": "1015540", "title": "OpenSSH scp Double Shell Character Expansion During Local-to-Local Copying May Let Local Users Gain Elevated Privileges in Certain Cases\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1015540"}
+| 
+| {"id": "1014845", "title": "OpenSSH May Unexpectedly Activate GatewayPorts and Also May Disclose GSSAPI Credentials in Certain Cases\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1014845"}
+| 
+| {"id": "1011193", "title": "OpenSSH scp Directory Traversal Flaw Lets Remote SSH Servers Overwrite Files in Certain Cases\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1011193"}
+| 
+| {"id": "1011143", "title": "OpenSSH Default Configuration May Be Unsafe When Used With Anonymous SSH Services\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1011143"}
+| 
+| {"id": "1007791", "title": "Portable OpenSSH PAM free() Bug May Let Remote Users Execute Root Code\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1007791"}
+| 
+| {"id": "1007716", "title": "OpenSSH buffer_append_space() and Other Buffer Management Errors May Let Remote Users Execute Arbitrary Code\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1007716"}
+| 
+| {"id": "1006926", "title": "OpenSSH Host Access Restrictions Can Be Bypassed By Remote Users\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1006926"}
+| 
+| {"id": "1006688", "title": "OpenSSH Timing Flaw With Pluggable Authentication Modules Can Disclose Valid User Account Names to Remote Users\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1006688"}
+| 
+| {"id": "1004818", "title": "OpenSSH's Secure Shell (SSH) Implementation Weakness May Disclose User Passwords to Remote Users During Man-in-the-Middle Attacks\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1004818"}
+| 
+| {"id": "1004616", "title": "OpenSSH Integer Overflow and Buffer Overflow May Allow Remote Users to Gain Root Access to the System\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1004616"}
+| 
+| {"id": "1004391", "title": "OpenSSH 'BSD_AUTH' Access Control Bug May Allow Unauthorized Remote Users to Authenticated to the System\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1004391"}
+| 
+| {"id": "1004115", "title": "OpenSSH Buffer Overflow in Kerberos Ticket and AFS Token Processing Lets Local Users Execute Arbitrary Code With Root Level Permissions\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1004115"}
+| 
+| {"id": "1003758", "title": "OpenSSH Off-by-one 'Channels' Bug May Let Authorized Remote Users Execute Arbitrary Code with Root Privileges\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1003758"}
+| 
+| {"id": "1002895", "title": "OpenSSH UseLogin Environment Variable Bug Lets Local Users Execute Commands and Gain Root Access\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1002895"}
+| 
+| {"id": "1002748", "title": "OpenSSH 3.0 Denial of Service Condition May Allow Remote Users to Crash the sshd Daemon and KerberosV Configuration Error May Allow Remote Users to Partially Authenticate When Authentication Should Not Be Permitted\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1002748"}
+| 
+| {"id": "1002734", "title": "OpenSSH's S/Key Implementation Information Disclosure Flaw Provides Remote Users With Information About Valid User Accounts\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1002734"}
+| 
+| {"id": "1002455", "title": "OpenSSH May Fail to Properly Restrict IP Addresses in Certain Configurations\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1002455"}
+| 
+| {"id": "1002432", "title": "OpenSSH's Sftp-server Subsystem Lets Authorized Remote Users with Restricted Keypairs Obtain Additional Access on the Server\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1002432"}
+| 
+| {"id": "1001683", "title": "OpenSSH Allows Authorized Users to Delete Other User Files Named Cookies\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "https://www.securitytracker.com/id/1001683"}
+| 
+| 
+| OSVDB - http://www.osvdb.org:
+| {"id": "92034", "title": "GSI-OpenSSH auth-pam.c Memory Management Authentication Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/92034"}
+| 
+| {"id": "90474", "title": "Red Hat / Fedora PAM Module for OpenSSH Incorrect error() Function Calling Local Privilege Escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/90474"}
+| 
+| {"id": "90007", "title": "OpenSSH logingracetime / maxstartup Threshold Connection Saturation Remote DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/90007"}
+| 
+| {"id": "81500", "title": "OpenSSH gss-serv.c ssh_gssapi_parse_ename Function Field Length Value Parsing Remote DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/81500"}
+| 
+| {"id": "78706", "title": "OpenSSH auth-options.c sshd auth_parse_options Function authorized_keys Command Option Debug Message Information Disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/78706"}
+| 
+| {"id": "75753", "title": "OpenSSH PAM Module Aborted Conversation Local Information Disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/75753"}
+| 
+| {"id": "75249", "title": "OpenSSH sftp-glob.c remote_glob Function Glob Expression Parsing Remote DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/75249"}
+| 
+| {"id": "75248", "title": "OpenSSH sftp.c process_put Function Glob Expression Parsing Remote DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/75248"}
+| 
+| {"id": "72183", "title": "Portable OpenSSH ssh-keysign ssh-rand-helper Utility File Descriptor Leak Local Information Disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/72183"}
+| 
+| {"id": "70873", "title": "OpenSSH Legacy Certificates Stack Memory Disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/70873"}
+| 
+| {"id": "69658", "title": "OpenSSH J-PAKE Public Parameter Validation Shared Secret Authentication Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/69658"}
+| 
+| {"id": "67743", "title": "Novell NetWare OpenSSH SSHD.NLM Absolute Path Handling Remote Overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/67743"}
+| 
+| {"id": "59353", "title": "OpenSSH sshd Local TCP Redirection Connection Masking Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/59353"}
+| 
+| {"id": "58495", "title": "OpenSSH sshd ChrootDirectory Feature SetUID Hard Link Local Privilege Escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/58495"}
+| 
+| {"id": "56921", "title": "OpenSSH Unspecified Remote Compromise\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/56921"}
+| 
+| {"id": "53021", "title": "OpenSSH on ftp.openbsd.org Trojaned Distribution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/53021"}
+| 
+| {"id": "50036", "title": "OpenSSH CBC Mode Chosen Ciphertext 32-bit Chunk Plaintext Context Disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/50036"}
+| 
+| {"id": "49386", "title": "OpenSSH sshd TCP Connection State Remote Account Enumeration\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/49386"}
+| 
+| {"id": "48791", "title": "OpenSSH on Debian sshd Crafted Username Arbitrary Remote SELinux Role Access\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/48791"}
+| 
+| {"id": "47635", "title": "OpenSSH Packages on Red Hat Enterprise Linux Compromised Distribution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/47635"}
+| 
+| {"id": "47227", "title": "OpenSSH X11UseLocalhost X11 Forwarding Port Hijacking\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/47227"}
+| 
+| {"id": "45873", "title": "Cisco WebNS SSHield w/ OpenSSH Crafted Large Packet Remote DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/45873"}
+| 
+| {"id": "43911", "title": "OpenSSH ~/.ssh/rc ForceCommand Bypass Arbitrary Command Execution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/43911"}
+| 
+| {"id": "43745", "title": "OpenSSH X11 Forwarding Local Session Hijacking\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/43745"}
+| 
+| {"id": "43371", "title": "OpenSSH Trusted X11 Cookie Connection Policy Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/43371"}
+| 
+| {"id": "39214", "title": "OpenSSH linux_audit_record_event Crafted Username Audit Log Injection\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/39214"}
+| 
+| {"id": "37315", "title": "pam_usb OpenSSH Authentication Unspecified Issue\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/37315"}
+| 
+| {"id": "34850", "title": "OpenSSH on Mac OS X Key Generation Remote Connection DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/34850"}
+| 
+| {"id": "34601", "title": "OPIE w/ OpenSSH Account Enumeration\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/34601"}
+| 
+| {"id": "34600", "title": "OpenSSH S/KEY Authentication Account Enumeration\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/34600"}
+| 
+| {"id": "32721", "title": "OpenSSH Username Password Complexity Account Enumeration\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/32721"}
+| 
+| {"id": "30232", "title": "OpenSSH Privilege Separation Monitor Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/30232"}
+| 
+| {"id": "29494", "title": "OpenSSH packet.c Invalid Protocol Sequence Remote DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/29494"}
+| 
+| {"id": "29266", "title": "OpenSSH GSSAPI Authentication Abort Username Enumeration\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/29266"}
+| 
+| {"id": "29264", "title": "OpenSSH Signal Handler Pre-authentication Race Condition Code Execution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/29264"}
+| 
+| {"id": "29152", "title": "OpenSSH Identical Block Packet DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/29152"}
+| 
+| {"id": "27745", "title": "Apple Mac OS X OpenSSH Nonexistent Account Login Enumeration DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/27745"}
+| 
+| {"id": "23797", "title": "OpenSSH with OpenPAM Connection Saturation Forked Process Saturation DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/23797"}
+| 
+| {"id": "22692", "title": "OpenSSH scp Command Line Filename Processing Command Injection\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/22692"}
+| 
+| {"id": "20216", "title": "OpenSSH with KerberosV Remote Authentication Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/20216"}
+| 
+| {"id": "19142", "title": "OpenSSH Multiple X11 Channel Forwarding Leaks\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/19142"}
+| 
+| {"id": "19141", "title": "OpenSSH GSSAPIAuthentication Credential Escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/19141"}
+| 
+| {"id": "18236", "title": "OpenSSH no pty Command Execution Local PAM Restriction Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/18236"}
+| 
+| {"id": "16567", "title": "OpenSSH Privilege Separation LoginGraceTime DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/16567"}
+| 
+| {"id": "16039", "title": "Solaris 108994 Series Patch OpenSSH LDAP Client Authentication DoS\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/16039"}
+| 
+| {"id": "9562", "title": "OpenSSH Default Configuration Anon SSH Service Port Bounce Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/9562"}
+| 
+| {"id": "9550", "title": "OpenSSH scp Traversal Arbitrary File Overwrite\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/9550"}
+| 
+| {"id": "6601", "title": "OpenSSH *realloc() Unspecified Memory Errors\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/6601"}
+| 
+| {"id": "6245", "title": "OpenSSH SKEY/BSD_AUTH Challenge-Response Remote Overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/6245"}
+| 
+| {"id": "6073", "title": "OpenSSH on FreeBSD libutil Arbitrary File Read\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/6073"}
+| 
+| {"id": "6072", "title": "OpenSSH PAM Conversation Function Stack Modification\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/6072"}
+| 
+| {"id": "6071", "title": "OpenSSH SSHv1 PAM Challenge-Response Authentication Privilege Escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/6071"}
+| 
+| {"id": "5536", "title": "OpenSSH sftp-server Restricted Keypair Restriction Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/5536"}
+| 
+| {"id": "5408", "title": "OpenSSH echo simulation Information Disclosure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/5408"}
+| 
+| {"id": "5113", "title": "OpenSSH NIS YP Netgroups Authentication Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/5113"}
+| 
+| {"id": "4536", "title": "OpenSSH Portable AIX linker Privilege Escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/4536"}
+| 
+| {"id": "3938", "title": "OpenSSL and OpenSSH /dev/random Check Failure\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/3938"}
+| 
+| {"id": "3456", "title": "OpenSSH buffer_append_space() Heap Corruption\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/3456"}
+| 
+| {"id": "2557", "title": "OpenSSH Multiple Buffer Management Multiple Overflows\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/2557"}
+| 
+| {"id": "2140", "title": "OpenSSH w/ PAM Username Validity Timing Attack\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/2140"}
+| 
+| {"id": "2112", "title": "OpenSSH Reverse DNS Lookup Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/2112"}
+| 
+| {"id": "2109", "title": "OpenSSH sshd Root Login Timing Side-Channel Weakness\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/2109"}
+| 
+| {"id": "1853", "title": "OpenSSH Symbolic Link 'cookies' File Removal", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/1853"}
+| 
+| {"id": "839", "title": "OpenSSH PAMAuthenticationViaKbdInt Challenge-Response Remote Overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/839"}
+| 
+| {"id": "781", "title": "OpenSSH Kerberos TGT/AFS Token Passing Remote Overflow\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/781"}
+| 
+| {"id": "730", "title": "OpenSSH Channel Code Off by One Remote Privilege Escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/730"}
+| 
+| {"id": "688", "title": "OpenSSH UseLogin Environment Variable Local Command Execution\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/688"}
+| 
+| {"id": "642", "title": "OpenSSH Multiple Key Type ACL Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/642"}
+| 
+| {"id": "504", "title": "OpenSSH SSHv2 Public Key Authentication Bypass\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/504"}
+| 
+| {"id": "341", "title": "OpenSSH UseLogin Local Privilege Escalation\x0D", "matches": "1", "product": "OpenSSH", "version": "", "link": "http://www.osvdb.org/341"}
+| 
+|_
+8080/tcp open  http    Apache httpd 2.4.43 ((Unix))
+|_http-server-header: Apache/2.4.43 (Unix)
+| vulscan: VulDB - https://vuldb.com:
+| {"id": "160579", "title": "Apache Cassandra up to 2.1.21/2.2.17/3.0.21/3.11.7/4.0-beta1 RMI Registry exposure of resource", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.160579"}
+| 
+| {"id": "121358", "title": "Apache Spark up to 2.1.2/2.2.1/2.3.0 PySpark/SparkR information disclosure", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.121358"}
+| 
+| {"id": "113146", "title": "Apache CouchDB 2.0.0 Windows Installer nssm.exe access control", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.113146"}
+| 
+| {"id": "99052", "title": "Apache Ambari up to 2.3.x kadmin information disclosure", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.99052"}
+| 
+| {"id": "87539", "title": "Apache Ambari up to 2.1.1 Agent data access control", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.87539"}
+| 
+| {"id": "79073", "title": "Apache Ambari up to 2.0 Config File Password information disclosure", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.79073"}
+| 
+| {"id": "79072", "title": "Apache Ambari up to 2.0 Config Screen Password information disclosure", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.79072"}
+| 
+| {"id": "60632", "title": "Debian apache2 2.2.16-6/2.2.22-1/2.22-3 mod_php cross site scripting", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.60632"}
+| 
+| {"id": "55501", "title": "Apache Mod Fcgid up to 2.3.2 mod_fcgid fcgid_bucket.c fcgid_header_bucket_read numeric error", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.55501"}
+| 
+| {"id": "23524", "title": "Apache James 2.2.0 Foundation retrieve memory leak", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://vuldb.com/id.23524"}
+| 
+| 
+| MITRE CVE - https://cve.mitre.org:
+| {"id": "CVE-2012-4558", "title": "Multiple cross-site scripting (XSS) vulnerabilities in the balancer_handler function in the manager interface in mod_proxy_balancer.c in the mod_proxy_balancer module in the Apache HTTP Server 2.2.x before 2.2.24-dev and 2.4.x before 2.4.4 allow remote attackers to inject arbitrary web script or HTML via a crafted string.\x0D", "matches": "6", "product": "Apache", "version": "2.4.4 2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4558"}
+| 
+| {"id": "CVE-2012-3499", "title": "Multiple cross-site scripting (XSS) vulnerabilities in the Apache HTTP Server 2.2.x before 2.2.24-dev and 2.4.x before 2.4.4 allow remote attackers to inject arbitrary web script or HTML via vectors involving hostnames and URIs in the (1) mod_imagemap, (2) mod_info, (3) mod_ldap, (4) mod_proxy_ftp, and (5) mod_status modules.\x0D", "matches": "6", "product": "Apache", "version": "2.4.4 2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3499"}
+| 
+| {"id": "CVE-2013-2249", "title": "mod_session_dbd.c in the mod_session_dbd module in the Apache HTTP Server before 2.4.5 proceeds with save operations for a session without considering the dirty flag and the requirement for a new session ID, which has unspecified impact and remote attack vectors.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2249"}
+| 
+| {"id": "CVE-2012-3502", "title": "The proxy functionality in (1) mod_proxy_ajp.c in the mod_proxy_ajp module and (2) mod_proxy_http.c in the mod_proxy_http module in the Apache HTTP Server 2.4.x before 2.4.3 does not properly determine the situations that require closing a back-end connection, which allows remote attackers to obtain sensitive information in opportunistic circumstances by reading a response that was intended for a different client.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3502"}
+| 
+| {"id": "CVE-2012-3451", "title": "Apache CXF before 2.4.9, 2.5.x before 2.5.5, and 2.6.x before 2.6.2 allows remote attackers to execute unintended web-service operations by sending a header with a SOAP Action String that is inconsistent with the message body.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3451"}
+| 
+| {"id": "CVE-2012-2687", "title": "Multiple cross-site scripting (XSS) vulnerabilities in the make_variant_list function in mod_negotiation.c in the mod_negotiation module in the Apache HTTP Server 2.4.x before 2.4.3, when the MultiViews option is enabled, allow remote attackers to inject arbitrary web script or HTML via a crafted filename that is not properly handled during construction of a variant list.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2687"}
+| 
+| {"id": "CVE-2012-2379", "title": "Apache CXF 2.4.x before 2.4.8, 2.5.x before 2.5.4, and 2.6.x before 2.6.1, when a Supporting Token specifies a child WS-SecurityPolicy 1.1 or 1.2 policy, does not properly ensure that an XML element is signed or encrypted, which has unspecified impact and attack vectors.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2379"}
+| 
+| {"id": "CVE-2012-2378", "title": "Apache CXF 2.4.5 through 2.4.7, 2.5.1 through 2.5.3, and 2.6.x before 2.6.1, does not properly enforce child policies of a WS-SecurityPolicy 1.1 SupportingToken policy on the client side, which allows remote attackers to bypass the (1) AlgorithmSuite, (2) SignedParts, (3) SignedElements, (4) EncryptedParts, and (5) EncryptedElements policies.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2378"}
+| 
+| {"id": "CVE-2012-0883", "title": "envvars (aka envvars-std) in the Apache HTTP Server before 2.4.2 places a zero-length directory name in the LD_LIBRARY_PATH, which allows local users to gain privileges via a Trojan horse DSO in the current working directory during execution of apachectl.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0883"}
+| 
+| {"id": "CVE-2011-2516", "title": "Off-by-one error in the XML signature feature in Apache XML Security for C++ 1.6.0, as used in Shibboleth before 2.4.3 and possibly other products, allows remote attackers to cause a denial of service (crash) via a signature using a large RSA key, which triggers a buffer overflow.\x0D", "matches": "5", "product": "Apache", "version": "2.4. 2.4 2. 2 ", "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2516"}
+| 
+| 
+| SecurityFocus - https://www.securityfocus.com/bid/:
+| {"id": "42102", "title": "Apache 'mod_proxy_http' 2.2.9 for Unix Timeout Handling Information Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/42102"}
+| 
+| {"id": "27237", "title": "Apache HTTP Server 2.2.6, 2.0.61 and 1.3.39 'mod_status' Cross-Site Scripting Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/27237"}
+| 
+| {"id": "15413", "title": "PHP Apache 2 Virtual() Safe_Mode and Open_Basedir Restriction Bypass Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/15413"}
+| 
+| {"id": "15177", "title": "PHP Apache 2 Local Denial of Service Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/15177"}
+| 
+| {"id": "6065", "title": "Apache 2 WebDAV CGI POST Request Information Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/6065"}
+| 
+| {"id": "5816", "title": "Apache 2 mod_dav Denial Of Service Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/5816"}
+| 
+| {"id": "5486", "title": "Apache 2.0 CGI Path Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/5486"}
+| 
+| {"id": "5485", "title": "Apache 2.0 Path Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/5485"}
+| 
+| {"id": "5434", "title": "Apache 2.0 Encoded Backslash Directory Traversal Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/5434"}
+| 
+| {"id": "5256", "title": "Apache httpd 2.0 CGI Error Path Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/5256"}
+| 
+| {"id": "4057", "title": "Apache 2 for Windows OPTIONS request Path Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/4057"}
+| 
+| {"id": "4056", "title": "Apache 2 for Windows php.exe Path Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securityfocus.com/bid/4056"}
+| 
+| 
+| IBM X-Force - https://exchange.xforce.ibmcloud.com:
+| {"id": "75211", "title": "Debian GNU/Linux apache 2 cross-site scripting\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/75211"}
+| 
+| 
+| Exploit-DB - https://www.exploit-db.com:
+| {"id": "31052", "title": "Apache <= 2.2.6 'mod_negotiation' HTML Injection and HTTP Response Splitting Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/31052"}
+| 
+| {"id": "30901", "title": "Apache HTTP Server 2.2.6 Windows Share PHP File Extension Mapping Information Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/30901"}
+| 
+| {"id": "30835", "title": "Apache HTTP Server <= 2.2.4 413 Error HTTP Request Method Cross-Site Scripting Weakness\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/30835"}
+| 
+| {"id": "28424", "title": "Apache 2.x HTTP Server Arbitrary HTTP Request Headers Security Weakness\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/28424"}
+| 
+| {"id": "28365", "title": "Apache 2.2.2 CGI Script Source Code Information Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/28365"}
+| 
+| {"id": "27915", "title": "Apache James 2.2 SMTP Denial of Service Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/27915"}
+| 
+| {"id": "27135", "title": "Apache Struts 2 DefaultActionMapper Prefixes OGNL Code Execution\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/27135"}
+| 
+| {"id": "26710", "title": "Apache CXF prior to 2.5.10, 2.6.7 and 2.7.4 - Denial of Service\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/26710"}
+| 
+| {"id": "24590", "title": "Apache 2.0.x mod_ssl Remote Denial of Service Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/24590"}
+| 
+| {"id": "23581", "title": "Apache 2.0.4x mod_perl Module File Descriptor Leakage Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/23581"}
+| 
+| {"id": "23482", "title": "Apache 2.0.4x mod_php Module File Descriptor Leakage Vulnerability (2)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/23482"}
+| 
+| {"id": "23481", "title": "Apache 2.0.4x mod_php Module File Descriptor Leakage Vulnerability (1)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/23481"}
+| 
+| {"id": "23296", "title": "Red Hat Apache 2.0.40 Directory Index Default Configuration Error\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/23296"}
+| 
+| {"id": "23282", "title": "apache cocoon 2.14/2.2 - Directory Traversal vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/23282"}
+| 
+| {"id": "22191", "title": "Apache Web Server 2.0.x MS-DOS Device Name Denial of Service Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/22191"}
+| 
+| {"id": "21854", "title": "Apache 2.0.39/40 Oversized STDERR Buffer Denial of Service Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/21854"}
+| 
+| {"id": "21719", "title": "Apache 2.0 Path Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/21719"}
+| 
+| {"id": "21697", "title": "Apache 2.0 Encoded Backslash Directory Traversal Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/21697"}
+| 
+| {"id": "20272", "title": "Apache 1.2.5/1.3.1,UnityMail 2.0 MIME Header DoS Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/20272"}
+| 
+| {"id": "19828", "title": "Cobalt RaQ 2.0/3.0 Apache .htaccess Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/19828"}
+| 
+| {"id": "18984", "title": "Apache Struts <= 2.2.1.1 - Remote Command Execution\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/18984"}
+| 
+| {"id": "18329", "title": "Apache Struts2 <= 2.3.1 - Multiple Vulnerabilities\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/18329"}
+| 
+| {"id": "17691", "title": "Apache Struts < 2.2.0 - Remote Command Execution\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/17691"}
+| 
+| {"id": "15319", "title": "Apache 2.2 (Windows) Local Denial of Service\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/15319"}
+| 
+| {"id": "14617", "title": "Apache JackRabbit 2.0.0 webapp XPath Injection\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/14617"}
+| 
+| {"id": "11650", "title": "Apache 2.2.14 mod_isapi Dangling Pointer Remote SYSTEM Exploit\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/11650"}
+| 
+| {"id": "8458", "title": "Apache Geronimo <= 2.1.3 - Multiple Directory Traversal Vulnerabilities\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/8458"}
+| 
+| {"id": "5330", "title": "Apache 2.0 mod_jk2 2.0.2 - Remote Buffer Overflow Exploit (win32)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/5330"}
+| 
+| {"id": "3996", "title": "Apache 2.0.58 mod_rewrite Remote Overflow Exploit (win2k3)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/3996"}
+| 
+| {"id": "2237", "title": "Apache < 1.3.37, 2.0.59, 2.2.3 (mod_rewrite) Remote Overflow PoC\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/2237"}
+| 
+| {"id": "1056", "title": "Apache <= 2.0.49 Arbitrary Long HTTP Headers Denial of Service\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/1056"}
+| 
+| {"id": "855", "title": "Apache <= 2.0.52 HTTP GET request Denial of Service Exploit\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/855"}
+| 
+| {"id": "132", "title": "Apache 1.3.x - 2.0.48 - mod_userdir Remote Users Disclosure Exploit\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/132"}
+| 
+| {"id": "38", "title": "Apache <= 2.0.45 APR Remote Exploit -Apache-Knacker.pl\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/38"}
+| 
+| {"id": "34", "title": "Webfroot Shoutbox < 2.32 (Apache) Remote Exploit\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/34"}
+| 
+| {"id": "11", "title": "Apache <= 2.0.44 Linux Remote Denial of Service Exploit\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/11"}
+| 
+| {"id": "9", "title": "Apache HTTP Server 2.x Memory Leak Exploit\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.exploit-db.com/exploits/9"}
+| 
+| 
+| OpenVAS (Nessus) - http://www.openvas.org:
+| {"id": "855524", "title": "Solaris Update for Apache 2 120544-14\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/855524"}
+| 
+| {"id": "855077", "title": "Solaris Update for Apache 2 120543-14\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/855077"}
+| 
+| {"id": "100858", "title": "Apache 'mod_proxy_http' 2.2.9 for Unix Timeout Handling Information Disclosure Vulnerability\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/100858"}
+| 
+| {"id": "72626", "title": "Debian Security Advisory DSA 2579-1 (apache2)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/72626"}
+| 
+| {"id": "71551", "title": "Gentoo Security Advisory GLSA 201206-25 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/71551"}
+| 
+| {"id": "71550", "title": "Gentoo Security Advisory GLSA 201206-24 (apache tomcat)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/71550"}
+| 
+| {"id": "71485", "title": "Debian Security Advisory DSA 2506-1 (libapache-mod-security)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/71485"}
+| 
+| {"id": "71256", "title": "Debian Security Advisory DSA 2452-1 (apache2)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/71256"}
+| 
+| {"id": "71238", "title": "Debian Security Advisory DSA 2436-1 (libapache2-mod-fcgid)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/71238"}
+| 
+| {"id": "70724", "title": "Debian Security Advisory DSA 2405-1 (apache2)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/70724"}
+| 
+| {"id": "70235", "title": "Debian Security Advisory DSA 2298-2 (apache2)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/70235"}
+| 
+| {"id": "70233", "title": "Debian Security Advisory DSA 2298-1 (apache2)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/70233"}
+| 
+| {"id": "69988", "title": "Debian Security Advisory DSA 2279-1 (libapache2-mod-authnz-external)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/69988"}
+| 
+| {"id": "69338", "title": "Debian Security Advisory DSA 2202-1 (apache2)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/69338"}
+| 
+| {"id": "66081", "title": "SLES11: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/66081"}
+| 
+| {"id": "66074", "title": "SLES10: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/66074"}
+| 
+| {"id": "66070", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/66070"}
+| 
+| {"id": "65893", "title": "SLES10: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65893"}
+| 
+| {"id": "65888", "title": "SLES10: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65888"}
+| 
+| {"id": "65510", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65510"}
+| 
+| {"id": "65249", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65249"}
+| 
+| {"id": "65230", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65230"}
+| 
+| {"id": "65228", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65228"}
+| 
+| {"id": "65207", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65207"}
+| 
+| {"id": "65136", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65136"}
+| 
+| {"id": "65131", "title": "SLES9: Security update for Apache 2 oes/CORE\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65131"}
+| 
+| {"id": "65017", "title": "SLES9: Security update for Apache 2\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/65017"}
+| 
+| {"id": "64426", "title": "Gentoo Security Advisory GLSA 200907-04 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/64426"}
+| 
+| {"id": "61381", "title": "Gentoo Security Advisory GLSA 200807-06 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/61381"}
+| 
+| {"id": "60582", "title": "Gentoo Security Advisory GLSA 200803-19 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/60582"}
+| 
+| {"id": "58745", "title": "Gentoo Security Advisory GLSA 200711-06 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/58745"}
+| 
+| {"id": "57851", "title": "Gentoo Security Advisory GLSA 200608-01 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/57851"}
+| 
+| {"id": "56246", "title": "Gentoo Security Advisory GLSA 200602-03 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/56246"}
+| 
+| {"id": "55392", "title": "Gentoo Security Advisory GLSA 200509-12 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/55392"}
+| 
+| {"id": "55129", "title": "Gentoo Security Advisory GLSA 200508-15 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/55129"}
+| 
+| {"id": "54739", "title": "Gentoo Security Advisory GLSA 200411-18 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54739"}
+| 
+| {"id": "54724", "title": "Gentoo Security Advisory GLSA 200411-03 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54724"}
+| 
+| {"id": "54712", "title": "Gentoo Security Advisory GLSA 200410-21 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54712"}
+| 
+| {"id": "54689", "title": "Gentoo Security Advisory GLSA 200409-33 (net=www/apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54689"}
+| 
+| {"id": "54677", "title": "Gentoo Security Advisory GLSA 200409-21 (apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54677"}
+| 
+| {"id": "54610", "title": "Gentoo Security Advisory GLSA 200407-03 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54610"}
+| 
+| {"id": "54601", "title": "Gentoo Security Advisory GLSA 200406-16 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54601"}
+| 
+| {"id": "54590", "title": "Gentoo Security Advisory GLSA 200406-05 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54590"}
+| 
+| {"id": "54582", "title": "Gentoo Security Advisory GLSA 200405-22 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54582"}
+| 
+| {"id": "54529", "title": "Gentoo Security Advisory GLSA 200403-04 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54529"}
+| 
+| {"id": "54499", "title": "Gentoo Security Advisory GLSA 200310-04 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54499"}
+| 
+| {"id": "54498", "title": "Gentoo Security Advisory GLSA 200310-03 (Apache)\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/54498"}
+| 
+| {"id": "11092", "title": "Apache 2.0.39 Win32 directory traversal\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.tenable.com/plugins/nessus/11092"}
+| 
+| 
+| SecurityTracker - https://www.securitytracker.com:
+| {"id": "1008196", "title": "Apache 2.x on Windows May Return Unexpected Files For URLs Ending With Certain Characters\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securitytracker.com/id/1008196"}
+| 
+| {"id": "1007143", "title": "Apache 2.0 Web Server May Use a Weaker Encryption Implementation Than Specified in Some Cases\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securitytracker.com/id/1007143"}
+| 
+| {"id": "1006444", "title": "Apache 2.0 Web Server Line Feed Buffer Allocation Flaw Lets Remote Users Deny Service\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securitytracker.com/id/1006444"}
+| 
+| {"id": "1005963", "title": "Apache Web Server 2.x Windows Device Access Flaw Lets Remote Users Crash the Server or Possibly Execute Arbitrary Code\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securitytracker.com/id/1005963"}
+| 
+| {"id": "1004770", "title": "Apache 2.x Web Server ap_log_rerror() Function May Disclose Full Installation Path to Remote Users\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "https://www.securitytracker.com/id/1004770"}
+| 
+| 
+| OSVDB - http://www.osvdb.org:
+| {"id": "20897", "title": "PHP w/ Apache 2 SAPI virtual() Function Unspecified INI Setting Disclosure\x0D", "matches": "3", "product": "Apache", "version": "2. 2 ", "link": "http://www.osvdb.org/20897"}
+| 
+|_
 
-OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 4096 IP addresses (4 hosts up) scanned in 56.53 seconds
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 4096 IP addresses (2 hosts up) scanned in 47.48 seconds

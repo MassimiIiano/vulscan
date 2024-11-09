@@ -1,0 +1,1 @@
+{"10.11.80.1": {"ip": "10.11.80.1", "mac": "D8:94:03:FA:37:D5", "device": "general purpose"}, "10.11.88.19": {"ip": "10.11.88.19", "mac": "F0:B4:D2:AB:0B:0A", "device": null}, "10.11.88.38": {"ip": "10.11.88.38", "mac": "C8:8A:9A:16:E3:A1", "device": null}, "10.11.81.6": {"ip": "10.11.81.6", "mac": null, "device": "general purpose"}}

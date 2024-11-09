@@ -1,16 +1,14 @@
-# shell.nix
 { pkgs ? import <nixpkgs> {} }:
 
-pkgs.mkShell rec {
+pkgs.mkShell {
+  # Specify the Python version you want (e.g., python39, python310)
   buildInputs = [
-    pkgs.python3
-    pkgs.python3Packages.requests
-    pkgs.python3Packages.scapy
-    pkgs.python3Packages.flask
+    pkgs.python312         # Python version (use any version you need)
+    pkgs.python312Packages.flask  # Flask package
   ];
 
-  # Optional: set up a Python environment
+  # Set environment variables if needed
   shellHook = ''
-    echo "Welcome to the nix-shell with Python!"
+    echo "Nix shell with Flask is ready!"
   '';
 }

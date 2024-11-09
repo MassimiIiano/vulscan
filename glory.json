@@ -1,0 +1,68 @@
+{
+    "10.11.80.1": {
+      "device": "general purpose",
+      "ip": "10.11.80.1",
+      "mac": "D8:94:03:FA:37:D5",
+      "vulnerabilities": []
+    },
+    "10.11.81.6": {
+      "device": "general purpose",
+      "ip": "10.11.81.6",
+      "mac": null,
+      "vulnerabilities": [
+        {
+          "id": "CVE-2012-6067",
+          "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6067",
+          "matches": "1",
+          "product": "OpenSSH",
+          "title": "freeFTPd.exe in freeFTPd through 1.0.11 allows remote attackers to bypass authentication via a crafted SFTP session, as demonstrated by an OpenSSH client with modified versions of ssh.c and sshconnect2.c.",
+          "version": ""
+        },
+        {
+          "id": "CVE-2012-6066",
+          "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6066",
+          "matches": "1",
+          "product": "OpenSSH",
+          "title": "freeSSHd.exe in freeSSHd through 1.2.6 allows remote attackers to bypass authentication via a crafted session, as demonstrated by an OpenSSH client with modified versions of ssh.c and sshconnect2.c.",
+          "version": ""
+        },
+        {
+          "id": "CVE-2012-5975",
+          "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5975",
+          "matches": "1",
+          "product": "OpenSSH",
+          "title": "The SSH USERAUTH CHANGE REQUEST feature in SSH Tectia Server 6.0.4 through 6.0.20, 6.1.0 through 6.1.12, 6.2.0 through 6.2.5, and 6.3.0 through 6.3.2 on UNIX and Linux, when old-style password authentication is enabled, allows remote attackers to bypass authentication via a crafted session involving entry of blank passwords, as demonstrated by a root login session from a modified OpenSSH client with an added input_userauth_passwd_changereq call in sshconnect2.c.",
+          "version": ""
+        },
+        {
+          "id": "CVE-2012-5536",
+          "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5536",
+          "matches": "1",
+          "product": "OpenSSH",
+          "title": "A certain Red Hat build of the pam_ssh_agent_auth module on Red Hat Enterprise Linux (RHEL) 6 and Fedora Rawhide calls the glibc error function instead of the error function in the OpenSSH codebase, which allows local users to obtain sensitive information from process memory or possibly gain privileges via crafted use of an application that relies on this module, as demonstrated by su and sudo.",
+          "version": ""
+        },
+        {
+          "id": "CVE-2012-0814",
+          "link": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0814",
+          "matches": "1",
+          "product": "OpenSSH",
+          "title": "The auth_parse_options function in auth-options.c in sshd in OpenSSH before 5.7 provides debug messages containing authorized_keys command options, which allows remote authenticated users to obtain potentially sensitive information by reading these messages, as demonstrated by the shared user account required by Gitolite.  NOTE: this can cross privilege boundaries because a user account may intentionally have no shell or filesystem access, and therefore may have no supported way to read an authorized_keys file in its own home directory.",
+          "version": ""
+        }
+      ]
+    },
+    "10.11.88.19": {
+      "device": null,
+      "ip": "10.11.88.19",
+      "mac": "F0:B4:D2:AB:0B:0A",
+      "vulnerabilities": []
+    },
+    "10.11.88.38": {
+      "device": null,
+      "ip": "10.11.88.38",
+      "mac": "C8:8A:9A:16:E3:A1",
+      "vulnerabilities": []
+    }
+  }
+  

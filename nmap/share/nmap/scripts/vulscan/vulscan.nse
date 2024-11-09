@@ -227,7 +227,7 @@ end
 action = function(host, port)
 	local prod = port.version.product	-- product name
 	local ver = port.version.version	-- product version
-	local struct = "[{id}] {title}\n"	-- default report structure
+	local struct = "{\"id\": \"{id}\", \"title\": \"{title}\", \"matches\": \"{matches}\", \"product\": \"{product}\", \"version\": \"{version}\", \"link\": \"{link}\"}\n\n"    -- default report structure
 	local db = {}				-- vulnerability database
 	local db_link = ""			-- custom link for vulnerability databases
 	local vul = {}				-- details for the vulnerability
