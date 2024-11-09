@@ -1,15 +1,16 @@
 # shell.nix
-with import <nixpkgs> {};
+{ pkgs ? import <nixpkgs> {} }:
 
-mkShell {
-  # Base package environment
+pkgs.mkShell rec {
   buildInputs = [
-    (nmap.overrideAttrs (old: {
-      # Custom source files to be added to the Nmap share folder
-      postInstall = ''
-        mkdir -p $out/share/nmap/vulscan
-        cp -r ./vulscan/* $out/share/nmap/vulscan
-      '';
-    }))
+    pkgs.python3
+    pkgs.python3Packages.requests
+    pkgs.python3Packages.scapy
+    pkgs.python3Packages.flask
   ];
+
+  # Optional: set up a Python environment
+  shellHook = ''
+    echo "Welcome to the nix-shell with Python!"
+  '';
 }

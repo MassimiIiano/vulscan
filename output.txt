@@ -1,0 +1,51 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2024-11-09 11:48 CET
+Nmap scan report for 10.11.80.1
+Host is up (0.043s latency).
+All 1000 scanned ports on 10.11.80.1 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: D8:94:03:FA:37:D5 (Hewlett Packard Enterprise – WW Corporate Headquarters)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: QEMU
+OS CPE: cpe:/a:qemu:qemu
+OS details: QEMU user mode network gateway
+Network Distance: 1 hop
+
+Nmap scan report for 10.11.88.19
+Host is up (0.0086s latency).
+Not shown: 994 filtered tcp ports (no-response)
+PORT      STATE SERVICE
+3389/tcp  open  ms-wbt-server
+5357/tcp  open  wsdapi
+7070/tcp  open  realserver
+8084/tcp  open  websnp
+8090/tcp  open  opsmessaging
+27000/tcp open  flexlm0
+MAC Address: F0:B4:D2:AB:0B:0A (D-Link International)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+Network Distance: 1 hop
+
+Nmap scan report for 10.11.88.38
+Host is up.
+All 1000 scanned ports on 10.11.88.38 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: C8:8A:9A:16:E3:A1 (Intel Corporate)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for 10.11.81.6
+Host is up (0.00012s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE    SERVICE
+22/tcp   open     ssh
+8080/tcp filtered http-proxy
+Device type: general purpose
+Running: Linux 2.6.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
+OS details: Linux 2.6.32, Linux 5.0 - 6.2
+Network Distance: 0 hops
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 4096 IP addresses (4 hosts up) scanned in 56.53 seconds
